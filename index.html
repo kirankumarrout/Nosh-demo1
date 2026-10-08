@@ -1,21 +1,162 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f8f8f5" />
-    <title>luscious — Take a taste. Come join us.</title>
-    <meta name="description" content="A playful editorial food experience for dumplings, recipes and shared plates." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="luscious — Take a taste. Come join us." />
-    <meta property="og:description" content="Life is so endlessly delicious." />
-    <meta property="og:image" content="/assets/hero-dumplings.webp" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href="/assets/hero-dumplings.webp" as="image" fetchpriority="high" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <noscript><main style="max-width: 680px; margin: 80px auto; padding: 24px; font-family: Georgia, serif"><h1>luscious</h1><p>Take a taste. Come join us.</p><p>Enable JavaScript to explore the full food experience.</p></main></noscript>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="description" content="Nosh restaurant in Kalinga Nagar, Bhubaneswar — where every bite feels like home." />
+  <title>Nosh | Kalinga Nagar, Bhubaneswar</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar wrap">
+      <a class="wordmark" href="#home" aria-label="Nosh home">Nosh<span>.</span></a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#experience">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reservation">Contact</a>
+      </nav>
+      <a class="pill compact" href="tel:+917751054666">Call now <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section id="home" class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Nosh · Kalinga Nagar</p>
+          <h1>Savor Every<br>Moment with<br><em>Every Bite.</em></h1>
+          <p class="lead">Where every bite feels like home. Chic bites, flavour and fun in a warm dining room made for good food and easy conversations.</p>
+          <div class="hero-actions">
+            <a class="pill" href="#reservation">Reserve your table <span aria-hidden="true">↗</span></a>
+            <div class="snapshot"><span class="star">★</span><strong>4.5</strong><span>from 250 reviews</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="dish-disc"><img src="./assets/nosh-chicken.webp" alt="Nosh plated dish"></div>
+          <div class="hero-badge badge-top">Chic bites</div>
+          <div class="hero-badge badge-bottom">Flavour &amp; fun</div>
+        </div>
+        <aside class="hero-facts" aria-label="Nosh listing snapshot">
+          <div><b>★</b><span><strong>Listing snapshot</strong><small>4.5/5 · 250 reviews</small></span></div>
+          <div><b>◌</b><span><strong>Services</strong><small>Dine-in · pickup · no-contact delivery</small></span></div>
+          <div><b>⌖</b><span><strong>Kalinga Nagar</strong><small>Bhubaneswar, Odisha</small></span></div>
+        </aside>
+      </section>
+
+      <section id="menu" class="section wrap">
+        <div class="heading split-heading">
+          <h2>Indulge in<br>Culinary Artistry</h2>
+          <p>Explore a few Nosh dishes mentioned in the supplied listing. Availability and pricing should be confirmed with the restaurant.</p>
+        </div>
+        <div class="dish-grid">
+          <article class="dish-card">
+            <div class="dish-image"><img src="./assets/nosh-chicken.webp" alt="Kasturi Fish visual placeholder using supplied Nosh food photography"></div>
+            <div class="dish-copy"><span>01</span><h3>Kasturi Fish</h3><p>Popular in the supplied listing snapshot.</p><a class="mini-pill" href="tel:+917751054666">Ask about it ↗</a></div>
+          </article>
+          <article class="dish-card">
+            <div class="dish-image"><img src="./assets/nosh-chicken.webp" alt="Banjara Chicken Tikka visual placeholder using supplied Nosh food photography"></div>
+            <div class="dish-copy"><span>02</span><h3>Banjara Chicken Tikka</h3><p>Mentioned by diners in the supplied listing snapshot.</p><a class="mini-pill" href="tel:+917751054666">Ask about it ↗</a></div>
+          </article>
+          <article class="dish-card">
+            <div class="dish-image"><img src="./assets/nosh-chicken.webp" alt="Masala Kulcha visual placeholder using supplied Nosh food photography"></div>
+            <div class="dish-copy"><span>03</span><h3>Masala Kulcha</h3><p>A listed highlight; current availability may vary.</p><a class="mini-pill" href="tel:+917751054666">Ask about it ↗</a></div>
+          </article>
+        </div>
+        <div class="menu-footline">
+          <span>Also mentioned: Apricot Delight · Phirni · Goan Fish · Kung Pao Chicken</span>
+          <a href="./assets/nosh-special-menu.webp" target="_blank" rel="noreferrer">View supplied special menu ↗</a>
+        </div>
+      </section>
+
+      <section id="experience" class="section wrap two-col">
+        <div class="section-copy">
+          <p class="eyebrow">Dining, your way</p>
+          <h2>Serving You<br>Better.</h2>
+          <p>Nosh combines a warm dine-in atmosphere with flexible service options for guests around Kalinga Nagar.</p>
+          <div class="feature-list">
+            <span><i>●</i>Dine-in</span><span><i>●</i>Kerbside pickup</span><span><i>●</i>No-contact delivery</span><span><i>●</i>₹200–400 indicative spend</span>
+          </div>
+          <a class="pill" href="tel:+917751054666">Call Nosh ↗</a>
+        </div>
+        <div class="portrait-collage">
+          <figure class="collage-main"><img src="./assets/nosh-interior-wide.webp" alt="Nosh interior"></figure>
+          <figure class="collage-small top"><img src="./assets/nosh-chicken.webp" alt="Nosh sandwich plate"></figure>
+          <figure class="collage-small bottom"><img src="./assets/nosh-chicken.webp" alt="Nosh plated snack"></figure>
+        </div>
+      </section>
+
+      <section class="section wrap two-col luxury-grid">
+        <div class="food-collage">
+          <figure class="food-main"><img src="./assets/nosh-interior-wide.webp" alt="Nosh dining table"></figure>
+          <figure class="food-small left"><img src="./assets/nosh-chicken.webp" alt="Nosh naan"></figure>
+          <figure class="food-small right"><img src="./assets/nosh-chicken.webp" alt="Nosh plated dish"></figure>
+        </div>
+        <div class="section-copy right-copy">
+          <p class="eyebrow">Warm dining in Bhubaneswar</p>
+          <h2>Comfortable dining<br>starts here.</h2>
+          <p>Cream seating, walnut tables, terracotta arches and palm artwork give the restaurant its recognizable warm character.</p>
+          <a class="pill" href="https://www.google.com/maps/search/?api=1&query=K8%2F906%2C%20House%20of%20Lords%2C%20Kalinga%20Nagar%2C%20Shampur%2C%20Bhubaneswar%2C%20Odisha%20751029" target="_blank" rel="noreferrer">Get directions ↗</a>
+        </div>
+      </section>
+
+      <section id="gallery" class="section wrap">
+        <div class="heading split-heading">
+          <h2>Crafted Around<br>Every Table</h2>
+          <p>Real Nosh spaces and food, presented without stock chefs or invented team profiles.</p>
+        </div>
+        <div class="portrait-grid">
+          <figure><img src="./assets/nosh-interior-wide.webp" alt="Nosh terracotta arch interior"><figcaption>Warm arches</figcaption></figure>
+          <figure><img src="./assets/nosh-interior-wide.webp" alt="Nosh dining room from above"><figcaption>Dining room</figcaption></figure>
+          <figure><img src="./assets/nosh-exterior.webp" alt="Nosh restaurant exterior"><figcaption>House of Lords</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section wrap">
+        <div class="heading split-heading">
+          <h2>Praise from<br>Our Patrons</h2>
+          <p>Accurate excerpts from the review text supplied for this project.</p>
+        </div>
+        <div class="review-grid">
+          <blockquote><div class="stars">★★★★★</div><p>“Like the food. Service was good. Good ambiance.”</p><footer>ronali priyadarshini</footer></blockquote>
+          <blockquote><div class="stars">★★★★★</div><p>“The ambience is cozy, chill, and very aesthetically pleasing—perfect for a relaxed outing.”</p><footer>Aleeva Rath</footer></blockquote>
+          <blockquote><div class="stars">★★★★★</div><p>“Really loved the quality of the food… Freshness of the food… Friendliness of the staff.”</p><footer>Aryan Padhy</footer></blockquote>
+        </div>
+      </section>
+
+      <section id="reservation" class="reservation wrap">
+        <div class="reservation-photo"><img src="./assets/nosh-interior-wide.webp" alt="Nosh dining space"><div class="photo-label"><span>Where every bite</span><strong>feels like home.</strong></div></div>
+        <form class="reservation-panel" onsubmit="event.preventDefault(); window.location.href='tel:+917751054666'">
+          <p class="eyebrow dark">Reserve Your Table</p>
+          <h2>Plan your visit.</h2>
+          <label><span>Name</span><input name="name" type="text" placeholder="Your name" autocomplete="name"></label>
+          <label><span>Phone</span><input name="phone" type="tel" placeholder="Your phone number" autocomplete="tel"></label>
+          <div class="form-grid"><label><span>Date</span><input name="date" type="date"></label><label><span>Time</span><input name="time" type="time"></label></div>
+          <label><span>Guests</span><select name="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7 guests</option><option>8 guests</option></select></label>
+          <button class="pill reservation-submit" type="submit">Call to confirm reservation ↗</button>
+          <small>Reservation requests are confirmed by the restaurant by phone. No online booking confirmation is implied.</small>
+        </form>
+      </section>
+
+      <section class="cta wrap">
+        <div class="cta-copy"><p class="eyebrow">Kalinga Nagar · Bhubaneswar</p><h2>Let Flavor<br>Lead the Way.</h2><p>Chic bites. Flavour &amp; fun.</p><a class="pill" href="tel:+917751054666">Book by phone ↗</a></div>
+        <div class="cta-disc"><img src="./assets/nosh-chicken.webp" alt="Nosh food plate"></div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <div class="footer-brand"><a class="wordmark large" href="#home">Nosh<span>.</span></a><p>Where every bite feels like home.</p><div class="socials"><a href="https://www.instagram.com/n_o_s_h_25/" target="_blank" rel="noreferrer">Instagram</a><a href="tel:+917751054666">Call</a></div></div>
+      <div class="footer-col"><strong>Visit</strong><p>K8/906, House of Lords, Kalinga Nagar, Shampur, Bhubaneswar, Odisha 751029</p><a href="https://www.google.com/maps/search/?api=1&query=K8%2F906%2C%20House%20of%20Lords%2C%20Kalinga%20Nagar%2C%20Shampur%2C%20Bhubaneswar%2C%20Odisha%20751029" target="_blank" rel="noreferrer">Directions</a></div>
+      <div class="footer-col"><strong>Contact</strong><a href="tel:+917751054666">+91 7751054666</a><a href="https://www.instagram.com/n_o_s_h_25/" target="_blank" rel="noreferrer">@n_o_s_h_25</a></div>
+      <div class="footer-col"><strong>Snapshot info</strong><p>4.5/5 · 250 reviews</p><p>₹200–400 per person</p></div>
+      <div class="footer-bottom"><span>© 2026 Nosh. Restaurant details based on supplied project data.</span><span>No invented hours, pricing or booking availability.</span></div>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Restaurant","name":"Nosh","telephone":"+91 7751054666","priceRange":"₹200–400","address":{"@type":"PostalAddress","streetAddress":"K8/906, House of Lords, Kalinga Nagar, Shampur","addressLocality":"Bhubaneswar","addressRegion":"Odisha","postalCode":"751029","addressCountry":"IN"},"sameAs":["https://www.instagram.com/n_o_s_h_25/"]}
+  </script>
+</body>
 </html>

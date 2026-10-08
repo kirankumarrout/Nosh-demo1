@@ -1,36 +1,15 @@
-# luscious — editorial food landing page
+# Nosh static Netlify site
 
-This project recreates the attached food website video as a fresh React + TypeScript experience. It uses the same sequence and visual rhythm: dumpling hero, plate menu, noodle story, recipe signup, and compact cooking footer.
+This version is intentionally dependency-free so Netlify deployment cannot fail because of Node/npm package installation.
 
-## Run locally
+## Deploy to Netlify
 
-```bash
-npm ci
-npm run dev
-```
+1. Push this folder to a GitHub repository.
+2. Import the repository into Netlify.
+3. Leave **Build command** empty.
+4. Set **Publish directory** to `.` (the included `netlify.toml` already does this).
+5. Deploy.
 
-Open the Vite URL shown in the terminal. For a production preview:
+No environment variables are required.
 
-```bash
-npm run check
-npm run build
-npm run preview
-```
-
-## Netlify
-
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Node: 22 or newer
-
-No API keys or runtime services are required.
-
-## Structure
-
-- `src/App.tsx` — page sections and interactions
-- `src/animations.ts` — GSAP scroll choreography
-- `src/styles.css` — marble canvas, editorial typography, and responsive layouts
-- `public/assets/` — generated food cutouts and self-hosted fonts
-- `index.html` — metadata and no-JavaScript fallback
-
-The page is responsive from small phones to large desktop screens. The motion toggle pauses the scroll choreography, and `prefers-reduced-motion` disables animated transforms automatically.
+The site uses only HTML/CSS plus the supplied Nosh assets. The reservation form does not claim online booking; submitting it opens the restaurant phone number for confirmation.
