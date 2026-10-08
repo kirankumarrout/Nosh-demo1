@@ -15,9 +15,16 @@
   --line: rgba(48, 49, 38, 0.19);
   --serif: 'DM Serif Display', Georgia, serif;
   --gutter: clamp(24px, 6vw, 100px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 * {
   box-sizing: border-box;
+}
+html,
+body,
+#root {
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
@@ -282,6 +289,7 @@ a {
     background 0.35s,
     color 0.35s,
     box-shadow 0.35s;
+  padding-top: max(20px, calc(20px + var(--safe-top)));
 }
 .site-header.is-scrolled,
 .site-header.nav-open {
@@ -363,6 +371,7 @@ a {
 }
 .entrance-stage {
   height: 100svh;
+  height: 100dvh;
   min-height: 580px;
   position: sticky;
   top: 0;
@@ -528,6 +537,7 @@ a {
   opacity: 0;
   pointer-events: none;
   filter: drop-shadow(0 30px 20px #171a1320);
+  will-change: transform, opacity;
 }
 
 /* Floating food composition */
@@ -976,6 +986,7 @@ a {
   color: var(--cream);
   overflow: hidden;
   background: #24271e;
+  will-change: clip-path;
 }
 .kitchen-background {
   position: absolute;
@@ -1124,6 +1135,7 @@ a {
   object-fit: cover;
   transition: transform 0.7s ease;
   filter: saturate(0.8);
+  will-change: transform;
 }
 .gallery-item:hover .gallery-photo > img {
   transform: scale(1.04);
@@ -1781,6 +1793,7 @@ a {
     padding-top: 16px;
     padding-bottom: 16px;
     gap: 15px;
+    padding-top: max(16px, calc(16px + var(--safe-top)));
   }
   .wordmark {
     font-size: 42px;
@@ -1830,10 +1843,11 @@ a {
     bottom: 25px;
   }
   .entrance {
-    height: 205svh;
+    height: 178svh;
   }
   .entrance-stage {
-    min-height: 560px;
+    min-height: 540px;
+    height: 100dvh;
   }
   .hero-shade {
     background:
@@ -1869,6 +1883,7 @@ a {
   }
   .taste-platter {
     width: 100%;
+    max-width: 760px;
   }
   .orbit {
     width: 60%;
@@ -2165,6 +2180,8 @@ a {
   }
   .site-header {
     gap: 8px;
+    padding-left: max(var(--gutter), calc(var(--gutter) + env(safe-area-inset-left, 0px)));
+    padding-right: max(var(--gutter), calc(var(--gutter) + env(safe-area-inset-right, 0px)));
   }
   .site-header .wordmark {
     font-size: 40px;
@@ -2218,6 +2235,9 @@ a {
   .entrance-stage {
     min-height: 540px;
   }
+  .entrance {
+    height: 163svh;
+  }
   .taste {
     padding-top: 65px;
     padding-bottom: 90px;
@@ -2230,7 +2250,7 @@ a {
     font-size: 12px;
   }
   .taste-art {
-    height: 270px;
+    height: 294px;
     margin: 24px -35px 0;
   }
   .food-stamp {
@@ -2287,6 +2307,7 @@ a {
     padding-bottom: 18px;
     gap: 18px;
     scrollbar-width: thin;
+    overscroll-behavior-x: contain;
   }
   .food-card {
     flex: 0 0 79%;
@@ -2590,7 +2611,7 @@ a {
   .mobile-call {
     position: fixed;
     z-index: 90;
-    bottom: 16px;
+    bottom: max(16px, calc(16px + var(--safe-bottom)));
     left: 22px;
     right: 22px;
     background: #f5f0e6f5;
@@ -2677,6 +2698,78 @@ a {
   }
   .copy-status {
     font-size: 9px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1199px) {
+  :root {
+    --gutter: clamp(34px, 5vw, 68px);
+  }
+  .site-header {
+    gap: 22px;
+  }
+  .main-nav {
+    gap: 17px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(62px, 8.4vw, 96px);
+  }
+  .taste {
+    min-height: 700px;
+  }
+  .taste-art {
+    margin-left: -20px;
+    margin-right: -4vw;
+  }
+  .kitchen-inner,
+  .kitchen-copy {
+    min-height: 780px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --gutter: 18px;
+  }
+  .site-header .wordmark {
+    font-size: 37px;
+  }
+  .header-reserve {
+    font-size: 9px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .hero-copy h1 {
+    font-size: 51px;
+  }
+  .hero-copy p {
+    font-size: 11px;
+  }
+  .hero-copy .button {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  .kitchen h2,
+  .reservation-content h2 {
+    font-size: 52px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 560px) {
+  .entrance {
+    height: 155svh;
+  }
+  .hero-copy {
+    top: 53%;
+    transform: translateY(-42%) scale(0.82);
+    transform-origin: left center;
+  }
+  .hero-bottom {
+    bottom: 18px;
+  }
+  .inside-copy {
+    transform: scale(0.72);
+    transform-origin: right bottom;
   }
 }
 

@@ -3,6 +3,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.ticker.lagSmoothing(1000, 16);
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+  autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
+});
 
 export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: boolean) {
   useLayoutEffect(() => {
@@ -10,16 +15,27 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
     const media = gsap.matchMedia();
     const context = gsap.context(() => {
       media.add(
-        { motion: '(prefers-reduced-motion: no-preference)', desktop: '(min-width: 800px)' },
+        {
+          motion: '(prefers-reduced-motion: no-preference)',
+          desktop: '(min-width: 1200px)',
+          tablet: '(min-width: 800px) and (max-width: 1199px)',
+          compact: '(max-width: 520px)',
+        },
         ({ conditions }) => {
           if (!conditions?.motion) return;
           const desktop = conditions.desktop;
+          const compact = conditions.compact;
+          const scrollEase = desktop ? 1.05 : compact ? 0.72 : 0.9;
+          const exteriorScale = desktop ? 2.8 : compact ? 1.72 : 1.95;
+          const interiorScale = desktop ? 1.23 : compact ? 1.13 : 1.17;
           const entrance = gsap.timeline({
             scrollTrigger: {
               trigger: '.entrance',
               start: 'top top',
               end: 'bottom bottom',
-              scrub: desktop ? 0.75 : 0.25,
+              scrub: scrollEase,
+              invalidateOnRefresh: true,
+              fastScrollEnd: true,
             },
           });
           entrance
@@ -27,14 +43,14 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
             .to('.hero-bottom', { autoAlpha: 0, duration: 0.12 }, 0)
             .to(
               '.exterior-layer',
-              { scale: desktop ? 2.8 : 2.1, duration: 0.48, ease: 'power2.inOut' },
+              { scale: exteriorScale, duration: 0.48, ease: 'power2.inOut' },
               0,
             )
             .to('.door-shadow', { opacity: 0.95, duration: 0.14 }, 0.29)
             .to('.exterior-layer', { opacity: 0, duration: 0.1 }, 0.37)
             .fromTo(
               '.interior-layer',
-              { opacity: 0, scale: 1.13 },
+              { opacity: 0, scale: compact ? 1.08 : 1.13 },
               { opacity: 1, scale: 1, duration: 0.25 },
               0.38,
             )
@@ -45,7 +61,11 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
               { y: 0, opacity: 1, duration: 0.18 },
               0.48,
             )
-            .to('.interior-layer', { scale: 1.23, duration: 0.33, ease: 'power1.inOut' }, 0.66)
+            .to(
+              '.interior-layer',
+              { scale: interiorScale, duration: 0.33, ease: 'power1.inOut' },
+              0.66,
+            )
             .to('.inside-copy', { opacity: 0, y: -30, duration: 0.15 }, 0.78)
             .fromTo(
               '.plate-portal',
@@ -72,7 +92,8 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
                 trigger: '.taste',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1,
+                scrub: scrollEase,
+                invalidateOnRefresh: true,
               },
             },
           );
@@ -85,7 +106,8 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
                 trigger: '.taste',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1.2,
+                scrub: desktop ? 1.15 : 0.9,
+                invalidateOnRefresh: true,
               },
             });
           });
@@ -95,16 +117,27 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
               autoAlpha: 0,
               duration: 0.85,
               ease: 'power2.out',
-              scrollTrigger: { trigger: element, start: 'top 93%', once: true },
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 93%',
+                once: true,
+                fastScrollEnd: true,
+              },
             });
           });
           gsap.fromTo(
             '.kitchen-inner',
-            { clipPath: 'circle(12% at 50% 0%)' },
+            { clipPath: compact ? 'circle(18% at 50% 0%)' : 'circle(12% at 50% 0%)' },
             {
-              clipPath: 'circle(150% at 50% 0%)',
+              clipPath: compact ? 'circle(125% at 50% 0%)' : 'circle(150% at 50% 0%)',
               ease: 'power1.inOut',
-              scrollTrigger: { trigger: '.kitchen', start: 'top 90%', end: 'top 10%', scrub: 0.5 },
+              scrollTrigger: {
+                trigger: '.kitchen',
+                start: 'top 90%',
+                end: 'top 10%',
+                scrub: desktop ? 0.72 : 0.55,
+                invalidateOnRefresh: true,
+              },
             },
           );
           gsap.fromTo(
@@ -118,7 +151,8 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
                 trigger: '.kitchen',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1,
+                scrub: scrollEase,
+                invalidateOnRefresh: true,
               },
             },
           );
@@ -130,14 +164,15 @@ export function useCinematicMotion(root: RefObject<HTMLDivElement>, paused: bool
                 trigger: '.gallery-grid',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1,
+                scrub: desktop ? 1 : 0.8,
+                invalidateOnRefresh: true,
               },
             });
           }
           gsap.to('.page-progress', {
             scaleX: 1,
             ease: 'none',
-            scrollTrigger: { start: 0, end: 'max', scrub: 0.1 },
+            scrollTrigger: { start: 0, end: 'max', scrub: 0.18, invalidateOnRefresh: true },
           });
         },
       );
